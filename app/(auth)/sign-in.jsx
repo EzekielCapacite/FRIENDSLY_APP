@@ -7,58 +7,64 @@ import CustomButton from '../../components/CustomButton'
 import { Link } from 'expo-router'
 
 const SignIn = () => {
-  const [form, setForm]=useState({
+  const [form, setForm] = useState({
     email: '',
-    password:''
+    password: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const submit = () =>{}
+  const submit = () => {}
 
   return (
     <SafeAreaView className="bg-pink-950 h-full">
       <ScrollView>
-          <View className="w-full justify-center items-center h-full px-4 my-6">
-              <Image source={images.logo}
-                resizemode='contain'
-                className="w-[300px] h-[50px] "
-              />
-              <Text className="text-2xl text-white mt-10 font-u_regular ">Log in to GetFoodApp</Text>
-              <FormField
-                  title="Email"
-                  value={form.email}
-                  handleChangeText={(e) => setForm({ ...form, email: e })}
-                  otherStyles="mt-7"
-                  keyboardType="email-address"
-              />
-              <FormField
+        <View className="w-full justify-center items-center h-full px-4 my-6">
+          <Image
+            source={images.logo}
+            resizemode="contain"
+            className="w-[300px] h-[50px]"
+          />
+          <Text className="text-2xl text-white mt-10 font-u_regular">
+            Log in to GetFoodApp
+          </Text>
+          <FormField
+            title="Email"
+            value={form.email}
+            handleChangeText={(e) => setForm({ ...form, email: e })}
+            otherStyles="mt-7"
+            keyboardType="email-address"
+          />
+          <FormField
+            title="Password"
+            value={form.password}
+            handleChangeText={(e) => setForm({ ...form, password: e })}
+            otherStyles="mt-7"
+          />
+          <CustomButton
+            title="Sign In"
+            handlePress={submit}
+            containerStyles="w-full mt-7"
+            isLoading={isSubmitting}
+          />
 
-                  title="Password"
-                  value={form.password}
-                  handleChangeText={(e) => setForm({ ...form, password: e })}
-                  otherStyles="mt-7"
-              />
-              <CustomButton
-                  title="Sign In"
-                  handlePress={submit}
-                  containerStyles="w-full mt-7"
-                  isLoading={isSubmitting}
-              />
-
-        <View className="flex justify-center pt-5 flex-row      gap-2">
+          <View className="flex justify-center pt-5 flex-row gap-2">
             <Text className="text-lg text-gray-100 font-pregular">
               Don't have an account?
             </Text>
-            
-            <Link
-              href="/sign-up"
-              className="text-lg font-u_bold text-blue-600 "
-            >
+            <Link href="/sign-up" className="text-lg font-u_bold text-blue-600">
               Signup
             </Link>
           </View>
+
+          {/* Link to Home */}
+          <View className="pt-5">
+            <Link href="/home" className="text-lg font-u_bold text-blue-600">
+              Login instead via FB
+            </Link>
           </View>
-        </ScrollView>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   )
 }
+
 export default SignIn

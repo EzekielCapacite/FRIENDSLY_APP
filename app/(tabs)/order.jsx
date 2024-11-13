@@ -28,7 +28,7 @@ const MenuItem = ({ item }) => {
   );
 };
 
-const Bookmark = () => {
+const order = () => {
   const menuItems = [
     {
       id: '1',
@@ -140,4 +140,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Bookmark;
+export default order;
