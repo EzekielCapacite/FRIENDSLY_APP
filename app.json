@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Get-Food-App",
-    "slug": "Get-Food-App",
-    "scheme":"Get-Food-App",
+    "name": "Spokify",
+    "slug": "Spokify",
+    "scheme":"Spokify",
     "version": "1.0.0",
     "orientation": "portrait",
     "icons": "./assets/icons.png",

@@ -1,68 +1,69 @@
 import React from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native';
-import { FontAwesome5, MaterialIcons } from '@expo/vector-icons'; // For icons
-import { useNavigation } from '@react-navigation/native';  // Import useNavigation
+import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 
-const home = () => {
+const HomeScreen = () => {
   return (
     <ScrollView style={styles.container}>
-      
-      {/* Search Bar */}
-      <View style={styles.searchContainer}>
-        <TextInput
-          placeholder="What are you looking for?"
-          style={styles.searchInput}
-        />
-        <TouchableOpacity style={styles.searchButton}>
-          <FontAwesome5 name="search" size={20} color="white" />
-        </TouchableOpacity>
+      {/* Featuring Today Section */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Featuring Today</Text>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          <View style={styles.featuredCard}>
+            <Image
+              source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT353T0-Of-yfHZ9dP4kdkdtYdqs6bl9bGRhQ&s' }} // replace with real image
+              style={styles.featuredImage}
+            />
+          </View>
+          <View style={styles.featuredCard}>
+            <Image
+              source={{ uri: 'https://link-to-image.com/song2.jpg' }} // replace with real image
+              style={styles.featuredImage}
+            />
+          </View>
+        </ScrollView>
       </View>
 
-      {/* Categories */}
-      <View style={styles.categoriesContainer}>
-        <TouchableOpacity style={styles.categoryButton}>
-          <MaterialIcons name="restaurant" size={24} color="#1E90FF" />
-          <Text style={styles.categoryText}>Restaurants</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.categoryButton}>
-          <MaterialIcons name="local-cafe" size={24} color="#1E90FF" />
-          <Text style={styles.categoryText}>Coffee Shops</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.categoryButton}>
-          <MaterialIcons name="fastfood" size={24} color="#1E90FF" />
-          <Text style={styles.categoryText}>Fast Food</Text>
-        </TouchableOpacity>
+      {/* Recently Played Section */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Recently Played</Text>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          <View style={styles.recentlyPlayedCard}>
+            <Image
+              source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT353T0-Of-yfHZ9dP4kdkdtYdqs6bl9bGRhQ&s' }} // replace with real image
+              style={styles.recentlyPlayedImage}
+            />
+            <Text style={styles.songName}>Inside Out</Text>
+          </View>
+          <View style={styles.recentlyPlayedCard}>
+            <Image
+              source={{ uri: 'https://i.ytimg.com/vi/fS7OffmLrf0/hqdefault.jpg' }} // replace with real image
+              style={styles.recentlyPlayedImage}
+            />
+            <Text style={styles.songName}>Young</Text>
+          </View>
+        </ScrollView>
       </View>
 
-      {/* Popular Food Section */}
-      <View style={styles.sectionHeader}>
-        <Text style={styles.sectionTitle}>Popular Food</Text>
-        <TouchableOpacity style={styles.viewAllButton}>
-          <Text style={styles.viewAllText}>View All</Text>
-        </TouchableOpacity>
+      {/* Mixes for You Section */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Mixes for You</Text>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          <View style={styles.mixCard}>
+            <Image
+              source={{ uri: 'https://i.ytimg.com/vi/QGme-DHrsYY/sddefault.jpg' }} // replace with real image
+              style={styles.mixImage}
+            />
+            <Text style={styles.mixName}>The Chainsmokers Mix</Text>
+          </View>
+          <View style={styles.mixCard}>
+            <Image
+              source={{ uri: 'https://i.ytimg.com/vi/iDuNcE44ICY/maxresdefault.jpg' }} // replace with real image
+              style={styles.mixImage}
+            />
+            <Text style={styles.mixName}>Pop Hits Mix</Text>
+          </View>
+        </ScrollView>
       </View>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.foodScroll}>
-        <Image source={{ uri: 'https://healthnewshub.org/wp-content/uploads/2024/03/Fast-Food-Restaurants.jpg' }} style={styles.foodImage} />
-        <Image source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4kV_1xBvf3PhGXxL9pDBYrzj-efhbzLFK8w&s' }} style={styles.foodImage} />
-        <Image source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBVcb3SrcEwh1QynO6fs2elOLALRowpjAFVQ&s' }} style={styles.foodImage} />
-        <Image source={{ uri: 'https://www.recipetineats.com/uploads/2023/09/Crispy-fried-chicken-burgers_5.jpg' }} style={styles.foodImage} />
-        <Image source={{ uri: 'https://www.allrecipes.com/thmb/aR092XCzdl_7RBgEKEp-7Wy71kI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8758-White-Cheese-Chicken-Lasagna-DDMFS-3x4-0177-2147ea1ce51c42228efdcb907819b5c2.jpg' }} style={styles.foodImage} />
-      </ScrollView>
-
-      {/* Fast Food Offers Section */}
-      <View style={styles.sectionHeader}>
-        <Text style={styles.sectionTitle}>Fast Food Offers</Text>
-        <TouchableOpacity style={styles.viewAllButton}>
-          <Text style={styles.viewAllText}>View All</Text>
-        </TouchableOpacity>
-      </View>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.foodScroll}>
-        <Image source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Hh1Ka8zIU0KaPaIdDTLYqFXT1JNmXsXK3g&s' }} style={styles.foodImage} />
-        <Image source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ6Oa0vDztvKy-52f5ZLy4ub8zWGnwRwcK1w&s' }} style={styles.foodImage} />
-        <Image source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStxYUb82L3RX5dgbZ_sPnFJGziaA3O3nqMQw&s' }} style={styles.foodImage} />
-        <Image source={{ uri: 'https://www.cookwithnabeela.com/wp-content/uploads/2024/02/ChickenNuggets.webp' }} style={styles.foodImage} />
-        <Image source={{ uri: 'https://amiraspantry.com/wp-content/uploads/2020/11/beef-shawarma-recipe-IG.jpg' }} style={styles.foodImage} />
-      </ScrollView>
     </ScrollView>
   );
 };
@@ -70,75 +71,54 @@ const home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
-    backgroundColor: '#ADD8E6',
-  },
-  searchContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  searchInput: {
-    flex: 1,
+    backgroundColor: '#000',
     padding: 10,
-    borderRadius: 10,
-    backgroundColor: '#FFF',
-    borderColor: '#D3D3D3',
-    borderWidth: 1,
   },
-  searchButton: {
-    backgroundColor: '#1E90FF',
-    padding: 10,
-    marginLeft: 10,
-    borderRadius: 10,
-  },
-  categoriesContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
+  section: {
     marginBottom: 20,
-  },
-  categoryButton: {
-    alignItems: 'center',
-    backgroundColor: '#FFF',
-    padding: 15,
-    borderRadius: 10,
-    borderColor: '#D3D3D3',
-    borderWidth: 1,
-    width: '30%',
-  },
-  categoryText: {
-    marginTop: 5,
-    color: '#1E90FF',
-    fontWeight: '600',
-  },
-  sectionHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 10,
   },
   sectionTitle: {
     fontSize: 18,
-    fontWeight: '700',
+    fontWeight: 'bold',
+    color: 'white',
+    marginBottom: 10,
   },
-  viewAllButton: {
-    backgroundColor: '#000',
-    padding: 5,
-    borderRadius: 5,
+  featuredCard: {
+    marginRight: 15,
   },
-  viewAllText: {
-    color: '#FFF',
-    fontWeight: '600',
-  },
-  foodScroll: {
-    marginBottom: 20,
-  },
-  foodImage: {
+  featuredImage: {
     width: 150,
     height: 150,
     borderRadius: 10,
-    marginRight: 10,
+  },
+  recentlyPlayedCard: {
+    marginRight: 15,
+    alignItems: 'center',
+  },
+  recentlyPlayedImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 10,
+  },
+  songName: {
+    fontSize: 14,
+    color: 'white',
+    marginTop: 5,
+  },
+  mixCard: {
+    marginRight: 15,
+    alignItems: 'center',
+  },
+  mixImage: {
+    width: 150,
+    height: 150,
+    borderRadius: 10,
+  },
+  mixName: {
+    fontSize: 14,
+    color: 'white',
+    marginTop: 5,
   },
 });
 
-export default home;
+export default HomeScreen;

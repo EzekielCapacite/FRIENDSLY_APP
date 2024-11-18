@@ -15,7 +15,7 @@ const SignIn = () => {
   const submit = () => {}
 
   return (
-    <SafeAreaView className="bg-pink-950 h-full">
+    <SafeAreaView className="bg-gray-950 h-full">
       <ScrollView>
         <View className="w-full justify-center items-center h-full px-4 my-6">
           <Image
@@ -50,15 +50,15 @@ const SignIn = () => {
             <Text className="text-lg text-gray-100 font-pregular">
               Don't have an account?
             </Text>
-            <Link href="/sign-up" className="text-lg font-u_bold text-blue-600">
+            <Link href="/sign-up" className="text-lg font-u_bold text-gray-600">
               Signup
             </Link>
           </View>
 
           {/* Link to Home */}
           <View className="pt-5">
-            <Link href="/home" className="text-lg font-u_bold text-blue-600">
-              Login instead via FB
+            <Link href="/home" className="text-lg font-u_bold text-gray-600">
+              Login on messenger
             </Link>
           </View>
         </View>

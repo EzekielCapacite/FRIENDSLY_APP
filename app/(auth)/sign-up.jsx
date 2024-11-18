@@ -15,7 +15,7 @@ const SignUp = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const submit = () =>{}
   return (
-    <SafeAreaView className="bg-pink-950 h-full">
+    <SafeAreaView className="bg-gray-950 h-full">
       <ScrollView>
           <View className="w-full justify-center items-center h-full px-4 my-1">
               <Image source={images.logo}
@@ -54,7 +54,7 @@ const SignUp = () => {
             </Text>   
             <Link
               href="/sign-up"
-              className="text-lg font-u_bold text-blue-600 "
+              className="text-lg font-u_bold text-gray-600 "
             >
               Signup
             </Link>

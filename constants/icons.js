@@ -1,9 +1,8 @@
 import create from "../assets/icons/create.png";
 import bookmark from "../assets/icons/bookmark.png";
 import home from "../assets/icons/home.png";
-import message from "../assets/icons/message.png";
+import plus from "../assets/icons/plus.png";
 import profile from "../assets/icons/profile.png";
-import login from "../assets/icons/login.png";
 import eye from "../assets/icons/eye.png";
 import hide_eye from "../assets/icons/hide_eye.png";
 
@@ -13,9 +12,8 @@ export default {
 
   bookmark,
   home,
-  message,
+  plus,
   profile,
-  login,
   eye,
   hide_eye
  };

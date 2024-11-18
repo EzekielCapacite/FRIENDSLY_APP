@@ -10,7 +10,7 @@ const TabIcon = ({icon, color, name, focused}) =>{
         source={icon}
         resizeMode="contain"
         className="w-6 h-6"
-        
+        tintColor={color}
       />
     </View>
   )
@@ -21,24 +21,6 @@ const TabLayout = () => {
   return (
    <>
     <Tabs>
-
-
-    <Tabs.Screen
-        name="login"
-        options={{
-          title:'Login',
-          headerShown:false,
-          tabBarIcon:({color,focused})=>(
-           <TabIcon
-            icon={icons.login}
-            color={color}
-            name="Login"
-            focused={focused}
-           />
-          )
-        }}
-      />
-
 
 
       <Tabs.Screen
@@ -58,15 +40,15 @@ const TabLayout = () => {
       />
 
     <Tabs.Screen
-        name="orders"
+        name="bookmark"
         options={{
-          title:'orders',
+          title:'Bookmark',
           headerShown:false,
           tabBarIcon:({color, focused})=>(
            <TabIcon
             icon={icons.bookmark}
             color={color}
-            name="orders"
+            name="Bookmark"
             focused={focused}
            />
           )
@@ -74,15 +56,15 @@ const TabLayout = () => {
       />
 
 <Tabs.Screen
-        name="message"
+        name="play"
         options={{
-          title:'message',
+          title:'play',
           headerShown:false,
           tabBarIcon:({color, focused})=>(
            <TabIcon
-            icon={icons.message}
+            icon={icons.plus}
             color={color}
-            name="message"
+            name="play"
             focused={focused}
            />
           )
