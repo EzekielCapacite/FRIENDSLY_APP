@@ -24,7 +24,7 @@ const SignIn = () => {
             className="w-[300px] h-[50px]"
           />
           <Text className="text-2xl text-white mt-10 font-u_regular">
-            Log in to GetFoodApp
+            Log in to Spokify
           </Text>
           <FormField
             title="Email"

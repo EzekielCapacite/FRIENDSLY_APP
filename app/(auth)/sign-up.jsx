@@ -22,7 +22,7 @@ const SignUp = () => {
                 resizemode='contain'
                 className="w-[200px] h-[30px] "
               />
-              <Text className="text-2xl text-white mt-5 font-u_regular ">Sign up to GetFoodApp</Text>
+              <Text className="text-2xl text-white mt-5 font-u_regular ">Sign up to SpoKify</Text>
               <FormField
                   title="Username"
                   value={form.username}
