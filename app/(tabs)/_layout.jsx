@@ -1,98 +1,110 @@
-import { View, Text, Image } from 'react-native'
-import React from 'react'
-import { Tabs, Redirect } from 'expo-router'
-import {icons} from '../../constants'
+import { View, Image, StyleSheet } from 'react-native';
+import React from 'react';
+import { Tabs } from 'expo-router';
+import { icons } from '../../constants';
 
-const TabIcon = ({icon, color, name, focused}) =>{
-  return(
+const TabIcon = ({ icon, color }) => {
+  return (
     <View>
       <Image
         source={icon}
         resizeMode="contain"
-        className="w-6 h-6"
-        tintColor={color}
+        style={[styles.icon, { tintColor: color }]}
       />
     </View>
-  )
-
-}
+  );
+};
 
 const TabLayout = () => {
   return (
-   <>
     <Tabs>
-
-
       <Tabs.Screen
-        name="home"
+        name="dashboard"
         options={{
-          title:'Home',
-          headerShown:false,
-          tabBarIcon:({color,focused})=>(
-           <TabIcon
-            icon={icons.home}
-            color={color}
-            name="Home"
-            focused={focused}
-           />
-          )
+          title: 'Dashboard',
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <TabIcon
+              icon={icons.dashboard}
+              color={color}
+            />
+          ),
         }}
       />
-
-    <Tabs.Screen
-        name="bookmark"
+      <Tabs.Screen
+        name="notification"
         options={{
-          title:'Bookmark',
-          headerShown:false,
-          tabBarIcon:({color, focused})=>(
-           <TabIcon
-            icon={icons.bookmark}
-            color={color}
-            name="Bookmark"
-            focused={focused}
-           />
-          )
+          title: 'Notification',
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <TabIcon
+              icon={icons.notification}
+              color={color}
+            />
+          ),
         }}
       />
-
-<Tabs.Screen
-        name="play"
-        options={{
-          title:'play',
-          headerShown:false,
-          tabBarIcon:({color, focused})=>(
-           <TabIcon
-            icon={icons.plus}
-            color={color}
-            name="play"
-            focused={focused}
-           />
-          )
-        }}
-      />
-
-<Tabs.Screen
+      <Tabs.Screen
         name="profile"
         options={{
-          title:'profile',
-          headerShown:false,
-          tabBarIcon:({color, focused})=>(
-           <TabIcon
-            icon={icons.profile}
-            color={color}
-            name="profile"
-            focused={focused}
-           />
-          )
+          title: 'Profile',
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <TabIcon
+              icon={icons.profile}
+              color={color}
+            />
+          ),
         }}
       />
-
-
-
-
+      <Tabs.Screen
+        name="search"
+        options={{
+          title: 'Search',
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <TabIcon
+              icon={icons.search}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="chats"
+        options={{
+          title: 'Chats',
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <TabIcon
+              icon={icons.chats}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="newsfeed"
+        options={{
+          title: 'Newsfeed',
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <TabIcon
+              icon={icons.newsfeed}
+              color={color}
+            />
+          ),
+        }}
+      />
     </Tabs>
-   </>
-  )
-}
+  );
+};
 
-export default TabLayout
+const styles = StyleSheet.create({
+  icon: {
+    width: 24,
+    height: 24,
+  },
+});
+
+export default TabLayout;

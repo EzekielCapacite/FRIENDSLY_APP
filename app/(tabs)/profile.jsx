@@ -1,64 +1,59 @@
+import { View, Text, StyleSheet, Image, FlatList, Button } from 'react-native';
 import React from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import animeImage from '../../assets/anime.png'; // Correctly import your image
+import coverImage from '../../assets/cover.png'; // Add a cover image if you have one
+
+const userProfile = {
+  name: 'Ezekiel Capacite',
+  bio: 'Just another social media enthusiast. Love to travel and share experiences!',
+  profilePicture: animeImage, // Use the imported image here
+  friends: [
+    { id: '1', name: 'Marion Anthony Magallon' },
+    { id: '2', name: 'Michael Olayvar' },
+    { id: '3', name: 'Stephen Stanley' },
+    { id: '4', name: 'Christian Sanchez' },
+  ],
+  posts: [
+    { id: '1', content: 'Just got back from an amazing trip to the mountains!', time: '2 hours ago' },
+    { id: '2', content: 'Excited for the weekend!', time: '1 day ago' },
+    { id: '3', content: 'Check out my new recipe!', time: '3 days ago' },
+  ],
+};
 
 const Profile = () => {
   return (
     <View style={styles.container}>
-      {/* Profile Section */}
-      <View style={styles.profileSection}>
-        <Image
-          source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH-blsvoWQeqmoTzZB3tISQMu2dw8R6TY4IA&s' }} // Replace with actual image URL
-          style={styles.profileImage}
-        />
-        <Text style={styles.userName}>Mr. AGUILA</Text>
-        <Text style={styles.email}>johnsaveagu7@gmail.com</Text>
+      <Image source={coverImage} style={styles.coverImage} />
+      <View style={styles.profileInfo}>
+        <Image source={userProfile.profilePicture} style={styles.profilePicture} />
+        <Text style={styles.name}>{userProfile.name}</Text>
+        <Text style={styles.bio}>{userProfile.bio}</Text>
+        <Text style={styles.friendsCount}>{userProfile.friends.length} Friends</Text>
+        <Button title="Send Friend Request" onPress={() => alert('Friend request sent!')} />
       </View>
+      
+      <Text style={styles.friendsTitle}>Friends</Text>
+      <FlatList
+        data={userProfile.friends}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <View style={styles.friend}>
+            <Text>{item.name}</Text>
+          </View>
+        )}
+      />
 
-      {/* Activities Section */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Activities</Text>
-        <TouchableOpacity style={styles.listItem}>
-          <Text style={styles.listItemText}>Draft</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.listItem}>
-          <Text style={styles.listItemText}>Wishlist</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.listItem}>
-          <Text style={styles.listItemText}>Favorite</Text>
-        </TouchableOpacity>
-      </View>
-
-      {/* Notification Section */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Notification</Text>
-        <TouchableOpacity style={styles.listItem}>
-          <Text style={styles.listItemText}>Notification</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.listItem}>
-          <Text style={styles.listItemText}>Security</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.listItem}>
-          <Text style={styles.listItemText}>Theme</Text>
-        </TouchableOpacity>
-      </View>
-
-      {/* Footer Section */}
-      <View style={styles.footer}>
-        <TouchableOpacity style={styles.listItem}>
-          <Text style={styles.listItemText}>Questions</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.listItem}>
-          <Text style={styles.listItemText}>Store</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.listItem}>
-          <Text style={styles.listItemText}>Language</Text>
-        </TouchableOpacity>
-      </View>
-
-      {/* Logout Button */}
-      <TouchableOpacity style={styles.logoutButton}>
-        <Text style={styles.logoutButtonText}>LOGOUT</Text>
-      </TouchableOpacity>
+      <Text style={styles.postsTitle}>Recent Posts</Text>
+      <FlatList
+        data={userProfile.posts}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <View style={styles.post}>
+            <Text style={styles.postContent}>{item.content}</Text>
+            <Text style={styles.postTime}>{item.time}</Text>
+          </View>
+        )}
+      />
     </View>
   );
 };
@@ -66,63 +61,70 @@ const Profile = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F5',
-    paddingHorizontal: 20,
-    paddingTop: 40,
+    backgroundColor: '#f9f9f9',
   },
-  profileSection: {
+  coverImage: {
+    width: '100%',
+    height: 200,
+    resizeMode: 'cover',
+  },
+  profileInfo: {
     alignItems: 'center',
-    marginBottom: 20,
+    marginTop: -60, // Overlap the profile picture with the cover image
   },
-  profileImage: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
+  profilePicture: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    borderWidth: 3,
+    borderColor: 'white',
     marginBottom: 10,
   },
-  userName: {
+  name: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  bio: {
+    fontSize: 16,
+    color: '#555',
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+  friendsCount: {
+    fontSize: 16,
+    marginBottom: 20,
+  },
+  friendsTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#000',
+    marginVertical: 10,
+    marginLeft: 20,
   },
-  email: {
-    color: '#888',
-    marginTop: 5,
+  friend: {
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
   },
-  section: {
-    marginBottom: 20,
-  },
-  sectionTitle: {
-    fontSize: 16,
+  postsTitle: {
+    fontSize: 20,
     fontWeight: 'bold',
-    color: '#888',
-    marginBottom: 10,
+    marginVertical: 10,
+    marginTop: 20,
+    marginLeft: 20,
   },
-  listItem: {
-    backgroundColor: '#FFF',
-    padding: 15,
-    borderRadius: 10,
-    marginBottom: 10,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+  post: {
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+    width: '100%',
   },
-  listItemText: {
+  postContent: {
     fontSize: 16,
-    color: '#000',
   },
-  footer: {
-    marginBottom: 20,
-  },
-  logoutButton: {
-    backgroundColor: '#000',
-    paddingVertical: 15,
-    borderRadius: 25,
-    alignItems: 'center',
-  },
-  logoutButtonText: {
-    color: '#FFF',
-    fontWeight: 'bold',
+  postTime: {
+    fontSize: 12,
+    color: '#888',
   },
 });
 

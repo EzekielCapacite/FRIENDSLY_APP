@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Spokify",
-    "slug": "Spokify",
-    "scheme":"Spokify",
+    "name": "Friendsly",
+    "slug": "Friendsly",
+    "scheme":"Friendsly",
     "version": "1.0.0",
     "orientation": "portrait",
     "icons": "./assets/icons.png",

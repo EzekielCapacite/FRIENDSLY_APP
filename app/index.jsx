@@ -7,7 +7,7 @@ import CustomButton from '../components/CustomButton';
 
 export default function App() {
   return (
-    <SafeAreaView className="bg-gray-950 h-full">
+    <SafeAreaView className="bg-green-950 h-full">
       <ScrollView contentContainerStyle={{height:'100%'}}>
         <View className="w-full justify-center, items-center min-h-screenh-[85vh] px-4">
               <Image
@@ -22,10 +22,11 @@ export default function App() {
               />
               <View className="relative mt-5">
                   <Text className="text-2xl text-white font-u_bold text-center">
-                    listen some popular music
+                  Connect with friends, share updates, and discover what's happening around the world.
+
                   </Text>
               </View>
-            <Text className="text-sm, font-j_bold text-gray-100 mt-7 text-center"> listen and enjoy
+            <Text className="text-sm, font-j_bold text-gray-100 mt-7 text-center"> Chat with your friends now
             </Text>
             <CustomButton
               title="Continue with Email"

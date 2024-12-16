@@ -1,19 +1,24 @@
-import create from "../assets/icons/create.png";
-import bookmark from "../assets/icons/bookmark.png";
-import home from "../assets/icons/home.png";
-import plus from "../assets/icons/plus.png";
+import dashboard from "../assets/icons/dashboard.png";
+import chats from "../assets/icons/chats.png";
 import profile from "../assets/icons/profile.png";
+import search from "../assets/icons/search.png";
+import notification from "../assets/icons/notification.png";
+import  newsfeed from "../assets/icons/newsfeed.png";
 import eye from "../assets/icons/eye.png";
 import hide_eye from "../assets/icons/hide_eye.png";
 
+
+
+
+
 export default {
  
-  create,
-
-  bookmark,
-  home,
-  plus,
+  dashboard,
+  chats,
   profile,
-  eye,
-  hide_eye
+  search,
+  notification,
+   newsfeed,
+   eye,
+   hide_eye
  };

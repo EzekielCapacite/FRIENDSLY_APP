@@ -1,67 +1,125 @@
-import { View, Text, Image, ScrollView } from 'react-native'
-import React, { useState } from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import { images } from '../../constants'
-import FormField from '../../components/FormField'
-import CustomButton from '../../components/CustomButton'
-import { Link } from 'expo-router'
+import { View, Text, Image, ScrollView } from 'react-native';
+import React, { useState } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { images } from '../../constants';
+import FormField from '../../components/FormField';
+import CustomButton from '../../components/CustomButton';
+import { Link } from 'expo-router';
 
 const SignUp = () => {
-  const [form, setForm]=useState({
-    username:'',
+  const [form, setForm] = useState({
+    username: '',
     email: '',
-    password:''
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const submit = () =>{}
+    password: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const submit = () => {
+    setIsSubmitting(true);
+    // Handle form submission (e.g., validation, API call)
+    setTimeout(() => {
+      setIsSubmitting(false); // Simulate request response
+    }, 2000);
+  };
+
   return (
-    <SafeAreaView className="bg-gray-950 h-full">
-      <ScrollView>
-          <View className="w-full justify-center items-center h-full px-4 my-1">
-              <Image source={images.logo}
-                resizemode='contain'
-                className="w-[200px] h-[30px] "
-              />
-              <Text className="text-2xl text-white mt-5 font-u_regular ">Sign up to SpoKify</Text>
-              <FormField
-                  title="Username"
-                  value={form.username}
-                  handleChangeText={(e) => setForm({ ...form, username: e })}
-                  otherStyles="mt-5"
-              />
-             <FormField
-                  title="Email"
-                  value={form.email}
-                  handleChangeText={(e) => setForm({ ...form, email: e })}
-                  otherStyles="mt-5"
-                  keyboardType="email-address"
-              />
-              <FormField
-                  title="Password"
-                  value={form.password}
-                  handleChangeText={(e) => setForm({ ...form, password: e })}
-                  otherStyles="mt-5"
-              />
-              <CustomButton
-                  title="Sign In"
-                  handlePress={submit}
-                  containerStyles="w-full mt-7"
-                  isLoading={isSubmitting}
-              />
-        <View className="flex justify-center pt-5 flex-row      gap-2">
-            <Text className="text-lg text-gray-100 font-pregular">
-              Don't have an account?
-            </Text>   
-            <Link
-              href="/sign-up"
-              className="text-lg font-u_bold text-gray-600 "
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#DAFFFB' }}>
+      <ScrollView
+        contentContainerStyle={{
+          flexGrow: 1, // Ensures the ScrollView contents can scroll beyond the screen height
+          justifyContent: 'center', // Centers content when not scrollable
+          paddingHorizontal: 16, // Adds horizontal padding
+        }}
+        showsVerticalScrollIndicator={false} // Optionally hide the scroll indicator
+      >
+        <View style={{ alignItems: 'center' }}>
+          {/* Logo */}
+          <Image
+            source={images.logo}
+            resizeMode="contain"
+            style={{ width: 300, height: 84, marginTop: 10 }}
+          />
+
+          {/* Title */}
+          <Text
+            style={{
+              fontSize: 24,
+              color: '#000',
+              marginTop: 10,
+              fontFamily: 'u_bold',
+              textAlign: 'center',
+            }}
+          >
+            Sign up to LibConnect
+          </Text>
+
+          {/* Username Field */}
+          <FormField
+            title="Username"
+            value={form.username}
+            handleChangeText={(e) => setForm({ ...form, username: e })}
+            otherStyles="mt-7"
+          />
+
+          {/* Email Field */}
+          <FormField
+            title="Email"
+            value={form.email}
+            handleChangeText={(e) => setForm({ ...form, email: e })}
+            otherStyles="mt-7"
+            keyboardType="email-address"
+          />
+
+          {/* Password Field */}
+          <FormField
+            title="Password"
+            value={form.password}
+            handleChangeText={(e) => setForm({ ...form, password: e })}
+            otherStyles="mt-7"
+          />
+
+          {/* Sign Up Button */}
+          <CustomButton
+            title="Sign Up"
+            handlePress={submit}
+            containerStyles="w-full mt-7"
+            isLoading={isSubmitting}
+          />
+
+          {/* Login Link */}
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginTop: 10,
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 16,
+                color: '#555',
+                fontFamily: 'pregular',
+              }}
             >
-              Signup
+              Already have an account?
+            </Text>
+            <Link
+              href="/(tabs)/profile"
+              style={{
+                fontSize: 16,
+                fontFamily: 'u_bold',
+                color: '#FF6600',
+                marginLeft: 5,
+              }}
+            >
+              Login
             </Link>
           </View>
-          </View>
-        </ScrollView>
+        </View>
+      </ScrollView>
     </SafeAreaView>
-  )
-}
-export default SignUp
+  );
+};
+
+export default SignUp;
