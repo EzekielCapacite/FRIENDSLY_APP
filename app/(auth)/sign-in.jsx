@@ -44,7 +44,7 @@ const SignIn = () => {
 
           {/* Title */}
           <Text className="text-2xl text-black mt-10 font-u_regular">
-            Log in to LibConnect
+            Log in to Friendsly
           </Text>
 
           {/* Error Message */}
