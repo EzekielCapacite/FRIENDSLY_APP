@@ -50,7 +50,7 @@ const SignUp = () => {
               textAlign: 'center',
             }}
           >
-            Sign up to LibConnect
+            Sign up to Friendsly
           </Text>
 
           {/* Username Field */}
